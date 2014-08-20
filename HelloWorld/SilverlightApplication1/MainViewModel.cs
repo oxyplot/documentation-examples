@@ -36,7 +36,7 @@ namespace SilverlightApplication1
     {
         public MainViewModel()
         {
-            this.MyModel = new PlotModel("Example 1");
+            this.MyModel = new PlotModel { Title = "Example 1" };
             this.MyModel.Series.Add(new FunctionSeries(Math.Cos, 0, 10, 0.1, "cos(x)"));
         }
 
