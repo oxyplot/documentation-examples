@@ -63,11 +63,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
-    <Reference Include="OxyPlot">
-      <HintPath>..\..\packages\OxyPlot.Core.2014.1.319.1\lib\portable-net4+sl4+wp71+win8\OxyPlot.dll</HintPath>
+    <Reference Include="OxyPlot, Version=2014.1.503.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\OxyPlot.Core.2014.1.503-alpha\lib\portable-net4+sl4+wp71+win8\OxyPlot.dll</HintPath>
     </Reference>
-    <Reference Include="OxyPlot.Silverlight">
-      <HintPath>..\..\packages\OxyPlot.Silverlight.2014.1.319.1\lib\SL5\OxyPlot.Silverlight.dll</HintPath>
+    <Reference Include="OxyPlot.Silverlight, Version=2014.1.503.0, Culture=neutral, PublicKeyToken=6d264fbdbde70ba9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\OxyPlot.Silverlight.2014.1.503-alpha\lib\sl5\OxyPlot.Silverlight.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="system" />

@@ -28,7 +28,6 @@
 namespace ExampleGenerator
 {
     using System;
-    using System.Drawing;
     using System.IO;
 
     using OxyPlot;
@@ -40,7 +39,7 @@ namespace ExampleGenerator
 
         static void Main(string[] args)
         {
-            OutputDirectory = @"..\..\..\..\..\..\Documentation\Images\Series";
+            OutputDirectory = @".";
             if (args.Length > 0)
             {
                 OutputDirectory = args[0];
