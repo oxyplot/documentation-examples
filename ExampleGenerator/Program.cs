@@ -29,64 +29,95 @@ namespace ExampleGenerator
 {
     using System;
     using System.IO;
+    using System.Reflection;
 
     using OxyPlot;
     using OxyPlot.WindowsForms;
 
-    public class Program
+    public static class Program
     {
         public static string OutputDirectory { get; set; }
 
-        static void Main(string[] args)
+        public static bool ExportPng { get; set; }
+
+        public static bool ExportPdf { get; set; }
+
+        public static bool ExportSvg { get; set; }
+
+        public static void Main(string[] args)
         {
+            ExportPng = true;
+            ExportPdf = true;
+            ExportSvg = true;
             OutputDirectory = @".";
             if (args.Length > 0)
             {
                 OutputDirectory = args[0];
             }
 
-            Export(SeriesExamples.Example1(), "Example1");
-            Export(SeriesExamples.LineSeries(), "LineSeries");
-            Export(SeriesExamples.LineSeriesSmoothed(), "LineSeriesSmoothed");
-            Export(SeriesExamples.TwoColorLineSeries(), "TwoColorLineSeries");
-            Export(SeriesExamples.ScatterSeries(), "ScatterSeries");
-            Export(SeriesExamples.HeatMapSeries(), "HeatMapSeries");
-            Export(SeriesExamples.ContourSeries(), "ContourSeries");
-            Export(SeriesExamples.BarSeries(), "BarSeries");
-            Export(SeriesExamples.ColumnSeries(), "ColumnSeries");
+            foreach (var type in Assembly.GetExecutingAssembly().GetTypes())
+            {
+                foreach (var method in type.GetMethods(BindingFlags.Static | BindingFlags.Public))
+                {
+                    var exportAttribute = method.GetCustomAttribute<ExportAttribute>();
+                    if (exportAttribute == null)
+                    {
+                        continue;
+                    }
+
+                    var model = (PlotModel)method.Invoke(null, null);
+                    Export(model, exportAttribute.Filename);
+                }
+            }
+
+            Export(ScatterSeriesExamples.ScatterSeries(), "ScatterSeries");
+
+            Export(HeatMapSeriesExamples.HeatMapSeries(), "HeatMapSeries");
+
+            Export(ContourSeriesExamples.ContourSeries(), "ContourSeries");
+
+            Export(BarSeriesExamples.BarSeries(), "BarSeries");
+
+            Export(ColumnSeriesExamples.ColumnSeries(), "ColumnSeries");
+
+            Export(TwoColorLineSeriesExamples.TwoColorLineSeries(), "TwoColorLineSeries");
         }
 
         private static void Export(PlotModel model, string name)
         {
             var fileName = Path.Combine(OutputDirectory, name + ".png");
-            Console.WriteLine(fileName);
-            using (var stream = File.Create(fileName))
+            if (ExportPng)
             {
-                var exporter = new PngExporter { Width = 600, Height = 400 };
-                exporter.Export(model, stream);
-            }
-
-            fileName = Path.ChangeExtension(fileName, ".pdf");
-            Console.WriteLine(fileName);
-            using (var stream = File.Create(fileName))
-            {
-                var exporter = new PdfExporter { Width = 600d * 72 / 96, Height = 400d * 72 / 96 };
-                exporter.Export(model, stream);
-            }
-
-            fileName = Path.ChangeExtension(fileName, ".svg");
-            Console.WriteLine(fileName);
-
-            using (var stream = File.Create(fileName))
-            {
-                using (var exporter = new OxyPlot.WindowsForms.SvgExporter
-                                       {
-                                           Width = 600,
-                                           Height = 400,
-                                           IsDocument = true
-                                       })
+                Console.WriteLine(fileName);
+                using (var stream = File.Create(fileName))
                 {
+                    var exporter = new PngExporter { Width = 600, Height = 400 };
                     exporter.Export(model, stream);
+                }
+            }
+
+            if (ExportPdf)
+            {
+                fileName = Path.ChangeExtension(fileName, ".pdf");
+                Console.WriteLine(fileName);
+                using (var stream = File.Create(fileName))
+                {
+                    var exporter = new PdfExporter { Width = 600d * 72 / 96, Height = 400d * 72 / 96 };
+                    exporter.Export(model, stream);
+                }
+            }
+
+            if (ExportSvg)
+            {
+                fileName = Path.ChangeExtension(fileName, ".svg");
+                Console.WriteLine(fileName);
+
+                using (var stream = File.Create(fileName))
+                {
+                    using (var exporter = new OxyPlot.WindowsForms.SvgExporter { Width = 600, Height = 400, IsDocument = true })
+                    {
+                        exporter.Export(model, stream);
+                    }
                 }
             }
         }
