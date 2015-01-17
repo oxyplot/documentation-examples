@@ -137,11 +137,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="OxyPlot">
-      <HintPath>..\..\packages\OxyPlot.Core.2014.1.319.1\lib\portable-net4+sl4+wp71+win8\OxyPlot.dll</HintPath>
+    <Reference Include="OxyPlot, Version=2015.1.689.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\OxyPlot.Core.2015.1.689-alpha\lib\portable-net4+sl4+wp71+win8+wpa81\OxyPlot.dll</HintPath>
     </Reference>
-    <Reference Include="OxyPlot.Metro">
-      <HintPath>..\..\packages\OxyPlot.Metro.2014.1.319.1\lib\NetCore45\OxyPlot.Metro.dll</HintPath>
+    <Reference Include="OxyPlot.WindowsUniversal">
+      <HintPath>..\packages\OxyPlot.WindowsUniversal.2015.1.689-alpha\lib\portable-windows8+wpa81\OxyPlot.WindowsUniversal\OxyPlot.WindowsUniversal.dll</HintPath>
     </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
