@@ -37,13 +37,13 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OxyPlot">
-      <HintPath>packages\OxyPlot.Core.2014.1.519-alpha\lib\portable-net4+sl4+wp71+win8\OxyPlot.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="OxyPlot, Version=2015.1.689.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\OxyPlot.Core.2015.1.689-alpha\lib\net45\OxyPlot.dll</HintPath>
     </Reference>
-    <Reference Include="OxyPlot.WindowsForms">
-      <HintPath>packages\OxyPlot.WindowsForms.2014.1.519-alpha\lib\net45\OxyPlot.WindowsForms.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="OxyPlot.WindowsForms, Version=2015.1.689.0, Culture=neutral, PublicKeyToken=245eacd6b5d2d338, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\OxyPlot.WindowsForms.2015.1.689-alpha\lib\net45\OxyPlot.WindowsForms.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
