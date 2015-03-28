@@ -28,6 +28,7 @@
 namespace ExampleGenerator
 {
     using System;
+    using System.Diagnostics;
     using System.IO;
     using System.Reflection;
 
@@ -36,6 +37,8 @@ namespace ExampleGenerator
 
     public static class Program
     {
+        private static string pngOptimizer;
+
         public static string OutputDirectory { get; set; }
 
         public static bool ExportPng { get; set; }
@@ -46,6 +49,8 @@ namespace ExampleGenerator
 
         public static void Main(string[] args)
         {
+            pngOptimizer = Path.GetFullPath(@"TruePNG.exe");
+
             ExportPng = true;
             ExportPdf = true;
             ExportSvg = true;
@@ -89,6 +94,8 @@ namespace ExampleGenerator
                     var exporter = new PngExporter { Width = 600, Height = 400 };
                     exporter.Export(model, stream);
                 }
+
+                OptimizePng(fileName);
             }
 
             if (ExportPdf)
@@ -115,6 +122,20 @@ namespace ExampleGenerator
                     }
                 }
             }
+        }
+
+        private static void OptimizePng(string pngFile)
+        {
+            // /o max : optimization level
+            // /nc : don't change ColorType and BitDepth
+            // /md keep pHYs : keep pHYs metadata
+            var psi = new ProcessStartInfo(pngOptimizer, pngFile + " /o max /nc /md keep pHYs")
+            {
+                CreateNoWindow = true,
+                WindowStyle = ProcessWindowStyle.Hidden
+            };
+            var p = Process.Start(psi);
+            p.WaitForExit();
         }
     }
 }
