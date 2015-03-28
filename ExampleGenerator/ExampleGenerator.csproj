@@ -50,6 +50,8 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Annotations\LineAnnotationExamples.cs" />
+    <Compile Include="Axes\LinearAxisExamples.cs" />
     <Compile Include="ExportAttribute.cs" />
     <Compile Include="Series\BarSeriesExamples.cs" />
     <Compile Include="Series\ColumnSeriesExamples.cs" />
@@ -64,10 +66,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Annotations\" />
-    <Folder Include="Axes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\TruePNG\TruePNG.exe">
