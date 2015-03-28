@@ -9,7 +9,7 @@
 
     public static class LineSeriesExamples
     {
-        [Export("LineSeries")]
+        [Export(@"Series\LineSeries")]
         public static PlotModel LineSeries()
         {
             // http://en.wikipedia.org/wiki/Normal_distribution
@@ -48,7 +48,7 @@
             return plot;
         }
 
-        [Export("LineSeries-Example1")]
+        [Export(@"Series\LineSeries-Example1")]
         public static PlotModel LineSeriesExample1()
         {
             var model = new PlotModel { Title = "LineSeries" };
@@ -61,7 +61,7 @@
             return model;
         }
 
-        [Export("LineSeries-Example2")]
+        [Export(@"Series\LineSeries-Example2")]
         public static PlotModel LineSeriesExample2()
         {
             var model = new PlotModel { Title = "LineSeries", Subtitle = "Smooth = true" };
@@ -74,7 +74,7 @@
             return model;
         }
 
-        [Export("LineSeries-Example3")]
+        [Export(@"Series\LineSeries-Example3")]
         public static PlotModel LineSeriesExample3()
         {
             var model = new PlotModel { Title = "LineSeries", Subtitle = "Smooth = true, MarkerType = Circle" };

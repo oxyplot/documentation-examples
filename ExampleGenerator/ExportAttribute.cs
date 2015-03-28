@@ -8,12 +8,6 @@
     public class ExportAttribute : Attribute
     {
         /// <summary>
-        /// Gets the filename.
-        /// </summary>
-        /// <value>The filename.</value>
-        public string Filename { get; private set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="ExportAttribute"/> class.
         /// </summary>
         /// <param name="filename">The filename.</param>
@@ -21,5 +15,11 @@
         {
             this.Filename = filename;
         }
+
+        /// <summary>
+        /// Gets the filename.
+        /// </summary>
+        /// <value>The filename.</value>
+        public string Filename { get; private set; }
     }
 }

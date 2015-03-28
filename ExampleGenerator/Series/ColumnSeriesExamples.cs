@@ -6,6 +6,7 @@ namespace ExampleGenerator
 
     public class ColumnSeriesExamples
     {
+        [Export(@"Series\ColumnSeries")]
         public static PlotModel ColumnSeries()
         {
             var model = new PlotModel

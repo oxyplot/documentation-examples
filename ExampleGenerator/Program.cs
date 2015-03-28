@@ -69,23 +69,18 @@ namespace ExampleGenerator
                     Export(model, exportAttribute.Filename);
                 }
             }
-
-            Export(ScatterSeriesExamples.ScatterSeries(), "ScatterSeries");
-
-            Export(HeatMapSeriesExamples.HeatMapSeries(), "HeatMapSeries");
-
-            Export(ContourSeriesExamples.ContourSeries(), "ContourSeries");
-
-            Export(BarSeriesExamples.BarSeries(), "BarSeries");
-
-            Export(ColumnSeriesExamples.ColumnSeries(), "ColumnSeries");
-
-            Export(TwoColorLineSeriesExamples.TwoColorLineSeries(), "TwoColorLineSeries");
         }
 
         private static void Export(PlotModel model, string name)
         {
             var fileName = Path.Combine(OutputDirectory, name + ".png");
+            var directory = Path.GetDirectoryName(fileName) ?? ".";
+            
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
             if (ExportPng)
             {
                 Console.WriteLine(fileName);

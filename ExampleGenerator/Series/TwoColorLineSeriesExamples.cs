@@ -5,6 +5,7 @@ namespace ExampleGenerator
 
     public class TwoColorLineSeriesExamples
     {
+        [Export(@"Series\TwoColorLineSeries")]
         public static PlotModel TwoColorLineSeries()
         {
             var model = new PlotModel { Title = "TwoColorLineSeries" };

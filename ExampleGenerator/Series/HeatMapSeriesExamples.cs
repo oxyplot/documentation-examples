@@ -8,6 +8,7 @@ namespace ExampleGenerator
 
     public class HeatMapSeriesExamples
     {
+        [Export(@"Series\HeatMapSeries")]
         public static PlotModel HeatMapSeries()
         {
             var model = new PlotModel { Title = "HeatMapSeries" };

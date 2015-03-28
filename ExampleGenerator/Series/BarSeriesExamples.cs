@@ -6,6 +6,7 @@
 
     public class BarSeriesExamples
     {
+        [Export(@"Series\BarSeries")]
         public static PlotModel BarSeries()
         {
             var model = new PlotModel
