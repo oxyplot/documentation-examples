@@ -27,6 +27,8 @@ namespace XamarinFormsApp1.Droid
 		public static void UpdateIdValues()
 		{
 			global::OxyPlot.Xamarin.Forms.Platform.Android.Resource.String.library_name = global::XamarinFormsApp1.Droid.Resource.String.library_name;
+			global::Xamarin.Forms.Platform.Resource.String.ApplicationName = global::XamarinFormsApp1.Droid.Resource.String.ApplicationName;
+			global::Xamarin.Forms.Platform.Resource.String.Hello = global::XamarinFormsApp1.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -61,8 +63,14 @@ namespace XamarinFormsApp1.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f030001
+			public const int ApplicationName = 2130903041;
+			
 			// aapt resource value: 0x7f030000
-			public const int library_name = 2130903040;
+			public const int Hello = 2130903040;
+			
+			// aapt resource value: 0x7f030002
+			public const int library_name = 2130903042;
 			
 			static String()
 			{
