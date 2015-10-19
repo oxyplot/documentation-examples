@@ -12,7 +12,7 @@
             this.InitializeComponent();
             this.SupportedOrientations = SupportedPageOrientation.PortraitOrLandscape;
 
-            OxyPlot.Xamarin.Forms.Platform.WinPhone.Forms.Init();
+            OxyPlot.Xamarin.Forms.Platform.WP8.Forms.Init();
             Forms.Init();
             this.LoadApplication(new XamarinFormsApp1.App());
         }

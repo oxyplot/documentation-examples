@@ -26,6 +26,8 @@ namespace XamarinFormsApp1.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::OxyPlot.Xamarin.Forms.Platform.Android.Resource.String.ApplicationName = global::XamarinFormsApp1.Droid.Resource.String.ApplicationName;
+			global::OxyPlot.Xamarin.Forms.Platform.Android.Resource.String.Hello = global::XamarinFormsApp1.Droid.Resource.String.Hello;
 			global::OxyPlot.Xamarin.Forms.Platform.Android.Resource.String.library_name = global::XamarinFormsApp1.Droid.Resource.String.library_name;
 			global::Xamarin.Forms.Platform.Resource.String.ApplicationName = global::XamarinFormsApp1.Droid.Resource.String.ApplicationName;
 			global::Xamarin.Forms.Platform.Resource.String.Hello = global::XamarinFormsApp1.Droid.Resource.String.Hello;
