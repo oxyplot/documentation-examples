@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinFormsApp1", "XamarinFormsApp1\XamarinFormsApp1\XamarinFormsApp1.csproj", "{BF7B7D58-A8F6-4B69-A470-1EEFA706FDE8}"
 EndProject
@@ -10,13 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinFormsApp1.Android", "XamarinFormsApp1\XamarinFormsApp1.Android\XamarinFormsApp1.Android.csproj", "{B4818A1B-1DB4-4DD8-914F-F1B36DAB1CC3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinFormsApp1.WinPhone", "XamarinFormsApp1\XamarinFormsApp1.WinPhone\XamarinFormsApp1.WinPhone.csproj", "{62A8FA8B-6ADD-4D15-B32C-3112FD3740A4}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{90830C41-F999-463C-A030-6E280950FA22}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
