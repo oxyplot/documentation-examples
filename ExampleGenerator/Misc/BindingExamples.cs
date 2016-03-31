@@ -7,7 +7,7 @@ namespace ExampleGenerator
         [Export(@"BindingExamples\Example1")]
         public static PlotModel Example1()
         {
-            return null;
+            return new PlotModel { Title = "TODO" };
         }
     }
 }
