@@ -61,8 +61,8 @@ namespace ExampleGenerator
 
 
 
-        [Export(@"Series\BarSeries_categorized")]
-		public static PlotModel BarSeries_categorized()
+        [Export(@"Series\BarSeries_grouped")]
+		public static PlotModel BarSeries_grouped()
         {
             var model = new PlotModel
                             {
