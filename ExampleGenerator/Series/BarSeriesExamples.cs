@@ -1,4 +1,8 @@
-﻿namespace ExampleGenerator
+﻿using System;
+using System.Linq;
+using System.Collections.Generic;
+
+namespace ExampleGenerator
 {
     using OxyPlot;
     using OxyPlot.Axes;
@@ -6,8 +10,59 @@
 
     public class BarSeriesExamples
     {
-        [Export(@"Series\BarSeries")]
-        public static PlotModel BarSeries()
+
+
+		[Export(@"Series\BarSeries")]
+		public static PlotModel BarSeries()
+		{
+
+			var model = new PlotModel{ Title = "Cake Type Popularity" };
+
+			//generate a random percentage distribution between the 5
+			//cake-types (see axis below)
+			var rand = new Random();
+			double[] cakePopularity = new double[5];
+			for(int i = 0; i < 5; ++i) {
+				cakePopularity[i] = rand.NextDouble();
+			}
+			var sum = cakePopularity.Sum();
+
+			var barSeries = new BarSeries
+			{
+				ItemsSource = new List<BarItem>(new[]
+				{
+					new BarItem{ Value = (cakePopularity[0] / sum * 100) },
+					new BarItem{ Value = (cakePopularity[1] / sum * 100) },
+					new BarItem{ Value = (cakePopularity[2] / sum * 100) },
+					new BarItem{ Value = (cakePopularity[3] / sum * 100) },
+					new BarItem{ Value = (cakePopularity[4] / sum * 100) }
+				}),
+				LabelPlacement = LabelPlacement.Inside,
+				LabelFormatString = "{0:.00}%"
+			};
+			model.Series.Add(barSeries);
+
+			model.Axes.Add(new CategoryAxis
+			{
+				Position = AxisPosition.Left,
+				Key = "CakeAxis",
+				ItemsSource = new[]
+				{
+					"Apple cake",
+					"Baumkuchen",
+					"Bundt Cake",
+					"Chocolate cake",
+					"Carrot cake"
+				}
+			});
+
+			return model;
+		}
+
+
+
+        [Export(@"Series\BarSeries_grouped")]
+		public static PlotModel BarSeries_grouped()
         {
             var model = new PlotModel
                             {
@@ -42,5 +97,6 @@
             model.Axes.Add(valueAxis);
             return model;
         }
+
     }
 }
