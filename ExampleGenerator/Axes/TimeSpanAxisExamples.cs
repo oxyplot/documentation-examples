@@ -7,7 +7,7 @@ namespace ExampleGenerator
 
     public class TimeSpanAxisExamples
     {
-        [Export(@"Axes\TimeSpanAxis")]
+        [Export("Axes/TimeSpanAxis")]
         public static PlotModel Default()
         {
             var model = new PlotModel { Title = "TimeSpanAxis" };

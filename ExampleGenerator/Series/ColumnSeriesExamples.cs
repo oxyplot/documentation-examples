@@ -6,17 +6,17 @@ namespace ExampleGenerator
 
     public class ColumnSeriesExamples
     {
-        [Export(@"Series\ColumnSeries")]
+        [Export("Series/ColumnSeries")]
         public static PlotModel ColumnSeries()
         {
             var model = new PlotModel
-                            {
-                                Title = "ColumnSeries",
-                                LegendPlacement = LegendPlacement.Outside,
-                                LegendPosition = LegendPosition.BottomCenter,
-                                LegendOrientation = LegendOrientation.Horizontal,
-                                LegendBorderThickness = 0
-                            };
+            {
+                Title = "ColumnSeries",
+                LegendPlacement = LegendPlacement.Outside,
+                LegendPosition = LegendPosition.BottomCenter,
+                LegendOrientation = LegendOrientation.Horizontal,
+                LegendBorderThickness = 0
+            };
 
             var s1 = new ColumnSeries { Title = "Series 1", StrokeColor = OxyColors.Black, StrokeThickness = 1 };
             s1.Items.Add(new ColumnItem { Value = 25 });

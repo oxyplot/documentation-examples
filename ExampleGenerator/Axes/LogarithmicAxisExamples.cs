@@ -5,7 +5,7 @@ namespace ExampleGenerator
 
     public class LogarithmicAxisExamples
     {
-        [Export(@"Axes\LogarithmicAxis")]
+        [Export("Axes/LogarithmicAxis")]
         public static PlotModel LogarithmicAxis()
         {
             var model = new PlotModel { Title = "LogarithmicAxis" };

@@ -6,7 +6,7 @@
 
     public class LineAnnotationExamples
     {
-        [Export(@"Annotations\LineAnnotation")]
+        [Export("Annotations/LineAnnotation")]
         public static PlotModel LineAnnotation()
         {
             var model = new PlotModel { Title = "LineAnnotation" };

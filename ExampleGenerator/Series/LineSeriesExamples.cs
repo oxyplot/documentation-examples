@@ -5,7 +5,7 @@
 
     public static class LineSeriesExamples
     {
-        [Export(@"Series\LineSeries")]
+        [Export("Series/LineSeries")]
         public static PlotModel LineSeries()
         {
             var model = new PlotModel { Title = "LineSeries" };
@@ -18,7 +18,7 @@
             return model;
         }
 
-        [Export(@"Series\LineSeries-Example2")]
+        [Export("Series/LineSeries-Example2")]
         public static PlotModel LineSeriesExample2()
         {
             var model = new PlotModel { Title = "LineSeries", Subtitle = "Smooth = true" };
@@ -31,7 +31,7 @@
             return model;
         }
 
-        [Export(@"Series\LineSeries-Example3")]
+        [Export("Series/LineSeries-Example3")]
         public static PlotModel LineSeriesExample3()
         {
             var model = new PlotModel { Title = "LineSeries", Subtitle = "MarkerType = Circle" };

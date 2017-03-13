@@ -5,7 +5,7 @@ namespace ExampleGenerator
 
     public class AxisExamples
     {
-        [Export(@"Axes\Position")]
+        [Export("Axes/Position")]
         public static PlotModel Position()
         {
             var model = new PlotModel { Title = "Position" };
@@ -16,7 +16,7 @@ namespace ExampleGenerator
             return model;
         }
 
-        [Export(@"Axes\MinimumMaximum")]
+        [Export("Axes/MinimumMaximum")]
         public static PlotModel MinimumMaximum()
         {
             var model = new PlotModel { Title = "Minimum and Maximum" };
@@ -24,7 +24,7 @@ namespace ExampleGenerator
             return model;
         }
 
-        [Export(@"Axes\MajorStep")]
+        [Export("Axes/MajorStep")]
         public static PlotModel MajorStep()
         {
             var model = new PlotModel { Title = "MajorStep" };
@@ -32,7 +32,7 @@ namespace ExampleGenerator
             return model;
         }
 
-        [Export(@"Axes\MinorStep")]
+        [Export("Axes/MinorStep")]
         public static PlotModel MinorStep()
         {
             var model = new PlotModel { Title = "MinorStep" };
@@ -40,7 +40,7 @@ namespace ExampleGenerator
             return model;
         }
 
-        [Export(@"Axes\PositionTier")]
+        [Export("Axes/PositionTier")]
         public static PlotModel PositionTier()
         {
             var model = new PlotModel { Title = "PositionTier" };
@@ -51,7 +51,7 @@ namespace ExampleGenerator
             return model;
         }
 
-        [Export(@"Axes\Reversed")]
+        [Export("Axes/Reversed")]
         public static PlotModel StartEndPositionReversed()
         {
             var model = new PlotModel { Title = "Reversed axes" };
@@ -60,7 +60,7 @@ namespace ExampleGenerator
             return model;
         }
 
-        [Export(@"Axes\StartEndPosition")]
+        [Export("Axes/StartEndPosition")]
         public static PlotModel StartEndPosition()
         {
             var model = new PlotModel { Title = "StartPosition and EndPosition" };

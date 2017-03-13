@@ -5,7 +5,7 @@ namespace ExampleGenerator
 
     public class PolarPlotExamples
     {
-        [Export(@"Axes\AngleAndMagnitudeAxis")]
+        [Export("Axes/AngleAndMagnitudeAxis")]
         public static PlotModel Default()
         {
             var model = new PlotModel { Title = "AngleAxis and MagnitudeAxis", PlotType = PlotType.Polar };

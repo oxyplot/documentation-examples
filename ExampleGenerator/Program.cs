@@ -24,6 +24,8 @@
 //   SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace ExampleGenerator
 {
@@ -37,7 +39,6 @@ namespace ExampleGenerator
 
     public static class Program
     {
-        private static string pngOptimizer;
 
         public static string OutputDirectory { get; set; }
 
@@ -49,8 +50,6 @@ namespace ExampleGenerator
 
         public static void Main(string[] args)
         {
-            pngOptimizer = Path.GetFullPath(@"TruePNG.exe");
-
             ExportPng = true;
             ExportPdf = true;
             ExportSvg = true;
@@ -59,6 +58,8 @@ namespace ExampleGenerator
             {
                 OutputDirectory = args[0];
             }
+
+            var exportTasks = new List<Task>();
 
             foreach (var type in Assembly.GetExecutingAssembly().GetTypes())
             {
@@ -71,12 +72,16 @@ namespace ExampleGenerator
                     }
 
                     var model = (PlotModel)method.Invoke(null, null);
-                    Export(model, exportAttribute.Filename);
+                    var exportTask = Export(model, exportAttribute.Filename.Replace('/', Path.DirectorySeparatorChar));
+                    exportTasks.Add(exportTask);
                 }
             }
+
+            //Wait for exports to finish
+            Task.WaitAll(exportTasks.ToArray());
         }
 
-        private static void Export(PlotModel model, string name)
+        private static async Task Export(PlotModel model, string name)
         {
             var fileName = Path.Combine(OutputDirectory, name + ".png");
             var directory = Path.GetDirectoryName(fileName) ?? ".";
@@ -95,7 +100,7 @@ namespace ExampleGenerator
                     exporter.Export(model, stream);
                 }
 
-                OptimizePng(fileName);
+                await OptimizePng(fileName);
             }
 
             if (ExportPdf)
@@ -124,18 +129,46 @@ namespace ExampleGenerator
             }
         }
 
-        private static void OptimizePng(string pngFile)
+
+        /* PNG Optimization */
+
+        private static async Task OptimizePng(string pngFile)
         {
+            if (Environment.OSVersion.Platform == PlatformID.Unix)
+            {
+                await OptimizePngWithOptiPNG(pngFile);
+            }
+            else
+            {
+                await OptimizePngWithTruePNG(pngFile);
+            }
+        }
+
+        private static async Task OptimizePngWithTruePNG(string pngFile)
+        {
+            var truePngExecutable = Path.GetFullPath("TruePNG.exe");
             // /o max : optimization level
             // /nc : don't change ColorType and BitDepth
             // /md keep pHYs : keep pHYs metadata
-            var psi = new ProcessStartInfo(pngOptimizer, pngFile + " /o max /nc /md keep pHYs")
+            var psi = new ProcessStartInfo(truePngExecutable, pngFile + " /o max /nc /md keep pHYs")
             {
                 CreateNoWindow = true,
                 WindowStyle = ProcessWindowStyle.Hidden
             };
             var p = Process.Start(psi);
-            p.WaitForExit();
+            await Task.Run(() => p.WaitForExit());
         }
+
+        private static async Task OptimizePngWithOptiPNG(string pngFile)
+        {
+            var psi = new ProcessStartInfo("optipng", "-o7 " + pngFile)
+            {
+                CreateNoWindow = true,
+                WindowStyle = ProcessWindowStyle.Hidden
+            };
+            var p = Process.Start(psi);
+            await Task.Run(() => p.WaitForExit());
+        }
+
     }
 }

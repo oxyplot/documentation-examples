@@ -5,7 +5,7 @@
     using OxyPlot;
     using OxyPlot.Series;
 
-    [Export(@"Series\ContourSeries")]
+    [Export("Series/ContourSeries")]
     public class ContourSeriesExamples
     {
         public static PlotModel ContourSeries()

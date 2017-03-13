@@ -9,38 +9,38 @@
 
     public static class Showcases
     {
-        [Export(@"Showcases\NormalDistribution")]
+        [Export("Showcases/NormalDistribution")]
         public static PlotModel LineSeries()
         {
             // http://en.wikipedia.org/wiki/Normal_distribution
             var plot = new PlotModel
-                           {
-                               Title = "Normal distribution",
-                               Subtitle = "Probability density function",
-                               DefaultFont = "Arial",
-                               Culture = CultureInfo.InvariantCulture
-                           };
+            {
+                Title = "Normal distribution",
+                Subtitle = "Probability density function",
+                DefaultFont = "Arial",
+                Culture = CultureInfo.InvariantCulture
+            };
 
             plot.Axes.Add(
                 new LinearAxis
-                    {
-                        Position = AxisPosition.Left,
-                        Minimum = -0.05,
-                        Maximum = 1.05,
-                        MajorStep = 0.2,
-                        MinorStep = 0.05,
-                        TickStyle = TickStyle.Inside
-                    });
+                {
+                    Position = AxisPosition.Left,
+                    Minimum = -0.05,
+                    Maximum = 1.05,
+                    MajorStep = 0.2,
+                    MinorStep = 0.05,
+                    TickStyle = TickStyle.Inside
+                });
             plot.Axes.Add(
                 new LinearAxis
-                    {
-                        Position = AxisPosition.Bottom,
-                        Minimum = -5.25,
-                        Maximum = 5.25,
-                        MajorStep = 1,
-                        MinorStep = 0.25,
-                        TickStyle = TickStyle.Inside
-                    });
+                {
+                    Position = AxisPosition.Bottom,
+                    Minimum = -5.25,
+                    Maximum = 5.25,
+                    MajorStep = 1,
+                    MinorStep = 0.25,
+                    TickStyle = TickStyle.Inside
+                });
             plot.Series.Add(CreateNormalDistributionSeries(-5, 5, 0, 0.2));
             plot.Series.Add(CreateNormalDistributionSeries(-5, 5, 0, 1));
             plot.Series.Add(CreateNormalDistributionSeries(-5, 5, 0, 5));

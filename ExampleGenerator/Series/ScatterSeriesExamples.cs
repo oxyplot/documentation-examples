@@ -8,7 +8,7 @@
 
     public class ScatterSeriesExamples
     {
-        [Export(@"Series\ScatterSeries")]
+        [Export("Series/ScatterSeries")]
         public static PlotModel ScatterSeries()
         {
             var model = new PlotModel { Title = "ScatterSeries" };

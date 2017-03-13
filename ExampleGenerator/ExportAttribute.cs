@@ -20,6 +20,10 @@
         /// Gets the filename.
         /// </summary>
         /// <value>The filename.</value>
+        /// <remarks>
+        /// For sub folders, use '/' as path delimiter.
+        /// This is then replaced with the current platforms path separator later in the process.
+        /// </remarks>
         public string Filename { get; private set; }
     }
 }

@@ -8,7 +8,7 @@ namespace ExampleGenerator
 
     public class HeatMapSeriesExamples
     {
-        [Export(@"Series\HeatMapSeries")]
+        [Export("Series/HeatMapSeries")]
         public static PlotModel HeatMapSeries()
         {
             var model = new PlotModel { Title = "HeatMapSeries" };
@@ -29,16 +29,16 @@ namespace ExampleGenerator
             return model;
         }
 
-        [Export(@"Series\HeatMapSeries_linear")]
+        [Export("Series/HeatMapSeries_linear")]
         public static PlotModel LinearHeatMap()
         {
             var model = new PlotModel { Title = "Heatmap" };
 
             // Color axis (the X and Y axes are generated automatically)
             model.Axes.Add(new LinearColorAxis
-            {
-                Palette = OxyPalettes.Rainbow(100)
-            });
+                {
+                    Palette = OxyPalettes.Rainbow(100)
+                });
 
             // generate 1d normal distribution
             var singleData = new double[100];
@@ -73,22 +73,22 @@ namespace ExampleGenerator
             return model;
         }
 
-        [Export(@"Series\HeatMapSeries_categorized")]
+        [Export("Series/HeatMapSeries_categorized")]
         public static PlotModel CategorizedHeatMap()
         {
             var model = new PlotModel { Title = "Cakes per Weekday" };
 
             // Weekday axis (horizontal)
             model.Axes.Add(new CategoryAxis
-            {
-                Position = AxisPosition.Bottom,
-
-                // Key used for specifying this axis in the HeatMapSeries
-                Key = "WeekdayAxis",
-
-                // Array of Categories (see above), mapped to one of the coordinates of the 2D-data array
-                ItemsSource = new[]
                 {
+                    Position = AxisPosition.Bottom,
+
+                    // Key used for specifying this axis in the HeatMapSeries
+                    Key = "WeekdayAxis",
+
+                    // Array of Categories (see above), mapped to one of the coordinates of the 2D-data array
+                    ItemsSource = new[]
+                    {
                         "Monday",
                         "Tuesday",
                         "Wednesday",
@@ -96,29 +96,29 @@ namespace ExampleGenerator
                         "Friday",
                         "Saturday",
                         "Sunday"
-                }
-            });
+                    }
+                });
 
             // Cake type axis (vertical)
             model.Axes.Add(new CategoryAxis
-            {
-                Position = AxisPosition.Left,
-                Key = "CakeAxis",
-                ItemsSource = new[]
                 {
+                    Position = AxisPosition.Left,
+                    Key = "CakeAxis",
+                    ItemsSource = new[]
+                    {
                         "Apple cake",
                         "Baumkuchen",
                         "Bundt cake",
                         "Chocolate cake",
                         "Carrot cake"
-                }
-            });
+                    }
+                });
 
             // Color axis
             model.Axes.Add(new LinearColorAxis
-            {
-                Palette = OxyPalettes.Hot(200)
-            });
+                {
+                    Palette = OxyPalettes.Hot(200)
+                });
 
             var rand = new Random();
             var data = new double[7, 5];

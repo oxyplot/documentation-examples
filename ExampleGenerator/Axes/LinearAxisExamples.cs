@@ -5,7 +5,7 @@
 
     public class LinearAxisExamples
     {
-        [Export(@"Axes\LinearAxis")]
+        [Export("Axes/LinearAxis")]
         public static PlotModel LinearAxis()
         {
             var model = new PlotModel { Title = "LinearAxis" };
