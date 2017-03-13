@@ -1,16 +1,13 @@
 ﻿using System;
 
-namespace ExampleGenerator
-{
+namespace ExampleGenerator {
 	using OxyPlot;
 	using OxyPlot.Axes;
 	using OxyPlot.Series;
 
-	public class FunctionSeriesExamples
-	{
-		[Export(@"Series\FunctionSeries")]
-		public static PlotModel FunctionSeries()
-		{
+	public class FunctionSeriesExamples {
+		[Export("Series/FunctionSeries")]
+		public static PlotModel FunctionSeries() {
 			var model = new PlotModel{ Title = "Fun with Bats" };
 
 			Func<double, double> batFn1 = (x) => 2 * Math.Sqrt(-Math.Abs(Math.Abs(x) - 1) * Math.Abs(3 - Math.Abs(x)) / ((Math.Abs(x) - 1) * (3 - Math.Abs(x)))) * (1 + Math.Abs(Math.Abs(x) - 3) / (Math.Abs(x) - 3)) * Math.Sqrt(1 - Math.Pow((x / 7), 2)) + (5 + 0.97 * (Math.Abs(x - 0.5) + Math.Abs(x + 0.5)) - 3 * (Math.Abs(x - 0.75) + Math.Abs(x + 0.75))) * (1 + Math.Abs(1 - Math.Abs(x)) / (1 - Math.Abs(x)));
