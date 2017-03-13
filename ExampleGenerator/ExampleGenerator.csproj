@@ -69,6 +69,7 @@
     <Compile Include="Misc\Showcases.cs" />
     <Compile Include="Series\TwoColorLineSeriesExamples.cs" />
     <Compile Include="Series\FunctionSeriesExamples.cs" />
+    <Compile Include="Series\StemSeriesExamples.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
