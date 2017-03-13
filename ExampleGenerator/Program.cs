@@ -24,6 +24,8 @@
 //   SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace ExampleGenerator {
 	using System;
@@ -53,6 +55,8 @@ namespace ExampleGenerator {
 				OutputDirectory = args[0];
 			}
 
+			var exportTasks = new List<Task>();
+
 			foreach(var type in Assembly.GetExecutingAssembly().GetTypes()) {
 				foreach(var method in type.GetMethods(BindingFlags.Static | BindingFlags.Public)) {
 					var exportAttribute = method.GetCustomAttribute<ExportAttribute>();
@@ -61,12 +65,16 @@ namespace ExampleGenerator {
 					}
 
 					var model = (PlotModel)method.Invoke(null, null);
-					Export(model, exportAttribute.Filename.Replace('/', Path.DirectorySeparatorChar));
+					var exportTask = Export(model, exportAttribute.Filename.Replace('/', Path.DirectorySeparatorChar));
+					exportTasks.Add(exportTask);
 				}
 			}
+
+			//Wait for exports to finish
+			Task.WaitAll(exportTasks.ToArray());
 		}
 
-		private static void Export(PlotModel model, string name) {
+		private static async Task Export(PlotModel model, string name) {
 			var fileName = Path.Combine(OutputDirectory, name + ".png");
 			var directory = Path.GetDirectoryName(fileName) ?? ".";
             
@@ -81,7 +89,7 @@ namespace ExampleGenerator {
 					exporter.Export(model, stream);
 				}
 
-				OptimizePng(fileName);
+				await OptimizePng(fileName);
 			}
 
 			if(ExportPdf) {
@@ -108,15 +116,15 @@ namespace ExampleGenerator {
 
 		/* PNG Optimization */
 
-		private static void OptimizePng(string pngFile) {
+		private static async Task OptimizePng(string pngFile) {
 			if(Environment.OSVersion.Platform == PlatformID.Unix) {
-				OptimizePngWithOptiPNG(pngFile);
+				await OptimizePngWithOptiPNG(pngFile);
 			} else {
-				OptimizePngWithTruePNG(pngFile);
+				await OptimizePngWithTruePNG(pngFile);
 			}
 		}
 
-		private static void OptimizePngWithTruePNG(string pngFile) {
+		private static async Task OptimizePngWithTruePNG(string pngFile) {
 			var truePngExecutable = Path.GetFullPath("TruePNG.exe");
 			// /o max : optimization level
 			// /nc : don't change ColorType and BitDepth
@@ -127,17 +135,17 @@ namespace ExampleGenerator {
 				WindowStyle = ProcessWindowStyle.Hidden
 			};
 			var p = Process.Start(psi);
-			p.WaitForExit();
+			await Task.Run(() => p.WaitForExit());
 		}
 
-		private static void OptimizePngWithOptiPNG(string pngFile) {
+		private static async Task OptimizePngWithOptiPNG(string pngFile) {
 			var psi = new ProcessStartInfo("optipng", "-o7 " + pngFile)
 			{
 				CreateNoWindow = true,
 				WindowStyle = ProcessWindowStyle.Hidden
 			};
 			var p = Process.Start(psi);
-			p.WaitForExit();
+			await Task.Run(() => p.WaitForExit());
 		}
 
 	}
