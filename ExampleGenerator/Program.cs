@@ -35,7 +35,6 @@ namespace ExampleGenerator {
 	using OxyPlot.WindowsForms;
 
 	public static class Program {
-		private static string pngOptimizer;
 
 		public static string OutputDirectory { get; set; }
 
@@ -46,8 +45,6 @@ namespace ExampleGenerator {
 		public static bool ExportSvg { get; set; }
 
 		public static void Main(string[] args) {
-			pngOptimizer = Path.GetFullPath(@"TruePNG.exe");
-
 			ExportPng = true;
 			ExportPdf = true;
 			ExportSvg = true;
@@ -108,11 +105,23 @@ namespace ExampleGenerator {
 			}
 		}
 
+
+		/* PNG Optimization */
+
 		private static void OptimizePng(string pngFile) {
+			if(Environment.OSVersion.Platform == PlatformID.Unix) {
+				OptimizePngWithOptiPNG(pngFile);
+			} else {
+				OptimizePngWithTruePNG(pngFile);
+			}
+		}
+
+		private static void OptimizePngWithTruePNG(string pngFile) {
+			var truePngExecutable = Path.GetFullPath("TruePNG.exe");
 			// /o max : optimization level
 			// /nc : don't change ColorType and BitDepth
 			// /md keep pHYs : keep pHYs metadata
-			var psi = new ProcessStartInfo(pngOptimizer, pngFile + " /o max /nc /md keep pHYs")
+			var psi = new ProcessStartInfo(truePngExecutable, pngFile + " /o max /nc /md keep pHYs")
 			{
 				CreateNoWindow = true,
 				WindowStyle = ProcessWindowStyle.Hidden
@@ -120,5 +129,16 @@ namespace ExampleGenerator {
 			var p = Process.Start(psi);
 			p.WaitForExit();
 		}
+
+		private static void OptimizePngWithOptiPNG(string pngFile) {
+			var psi = new ProcessStartInfo("optipng", "-o7 " + pngFile)
+			{
+				CreateNoWindow = true,
+				WindowStyle = ProcessWindowStyle.Hidden
+			};
+			var p = Process.Start(psi);
+			p.WaitForExit();
+		}
+
 	}
 }
