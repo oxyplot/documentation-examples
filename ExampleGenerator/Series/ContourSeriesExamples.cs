@@ -5,9 +5,10 @@
     using OxyPlot;
     using OxyPlot.Series;
 
-    [Export("Series/ContourSeries")]
     public class ContourSeriesExamples
     {
+
+        [Export("Series/ContourSeries")]
         public static PlotModel ContourSeries()
         {
             var model = new PlotModel { Title = "ContourSeries" };
