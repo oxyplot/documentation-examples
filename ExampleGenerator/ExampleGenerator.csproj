@@ -49,7 +49,10 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Annotations\EllipseAnnotationExamples.cs" />
     <Compile Include="Annotations\LineAnnotationExamples.cs" />
+    <Compile Include="Annotations\RectangleAnnotationExamples.cs" />
+    <Compile Include="Annotations\TextAnnotationExamples.cs" />
     <Compile Include="Axes\AxisExamples.cs" />
     <Compile Include="Axes\DateTimeAxisExamples.cs" />
     <Compile Include="Axes\LinearAxisExamples.cs" />
