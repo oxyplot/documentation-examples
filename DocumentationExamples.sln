@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication1", "HelloWor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication2", "HelloWorld\WpfApplication2\WpfApplication2.csproj", "{BC998130-E0C4-4267-B9CA-14B04BDC7B3E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Normal distributions example", "Normal distributions example", "{E88F969F-90C1-49EC-B87C-E80C321DB509}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Showcases", "Showcases", "{E88F969F-90C1-49EC-B87C-E80C321DB509}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NormalDistributionsWpf", "NormalDistributions\NormalDistributionsWpf\NormalDistributionsWpf.csproj", "{55A9DEBA-A0BE-45E8-9E83-74F2E4890727}"
 EndProject
