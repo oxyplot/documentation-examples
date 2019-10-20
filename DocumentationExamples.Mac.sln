@@ -1,0 +1,25 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NormalDistributionsMac", "Showcases\NormalDistributionsMac\NormalDistributionsMac.csproj", "{EB935413-8966-4C74-B4B4-8BB9E388F73C}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "NormalDistributions.Shared", "Showcases\NormalDistributions.Shared\NormalDistributions.Shared.shproj", "{70FF713A-E9D7-4CFE-A856-96A4FAF05373}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Showcases", "Showcases", "{D357871B-2CB1-46FF-AA5D-6966FC1F5F04}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB935413-8966-4C74-B4B4-8BB9E388F73C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB935413-8966-4C74-B4B4-8BB9E388F73C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB935413-8966-4C74-B4B4-8BB9E388F73C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB935413-8966-4C74-B4B4-8BB9E388F73C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{70FF713A-E9D7-4CFE-A856-96A4FAF05373} = {D357871B-2CB1-46FF-AA5D-6966FC1F5F04}
+		{EB935413-8966-4C74-B4B4-8BB9E388F73C} = {D357871B-2CB1-46FF-AA5D-6966FC1F5F04}
+	EndGlobalSection
+EndGlobal
