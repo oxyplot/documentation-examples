@@ -2,12 +2,10 @@
 {
     using System;
     using OxyPlot;
-    using OxyPlot.Axes;
     using OxyPlot.Series;
 
     public class StemSeriesExamples
     {
-
         [Export("Series/StemSeries")]
         public static PlotModel StemSeries()
         {
@@ -38,6 +36,5 @@
 
             return model;
         }
-
     }
 }

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ExampleGenerator.Series
+﻿namespace ExampleGenerator.Series
 {
+    using System;
+
     using OxyPlot;
     using OxyPlot.Axes;
     using OxyPlot.Series;

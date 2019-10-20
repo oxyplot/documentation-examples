@@ -1,17 +1,15 @@
-﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-
-namespace ExampleGenerator
+﻿namespace ExampleGenerator
 {
+    using System;
+    using System.Linq;
+    using System.Collections.Generic;
+
     using OxyPlot;
     using OxyPlot.Axes;
     using OxyPlot.Series;
 
     public class BarSeriesExamples
     {
-
-
         [Export("Series/BarSeries")]
         public static PlotModel BarSeries()
         {
@@ -60,8 +58,6 @@ namespace ExampleGenerator
             return model;
         }
 
-
-
         [Export("Series/BarSeries_grouped")]
         public static PlotModel BarSeries_grouped()
         {
@@ -98,6 +94,5 @@ namespace ExampleGenerator
             model.Axes.Add(valueAxis);
             return model;
         }
-
     }
 }

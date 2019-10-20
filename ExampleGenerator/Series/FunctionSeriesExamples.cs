@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace ExampleGenerator
+﻿namespace ExampleGenerator
 {
+    using System;
+
     using OxyPlot;
     using OxyPlot.Axes;
     using OxyPlot.Series;
