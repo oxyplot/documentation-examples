@@ -1,10 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
       <TargetFramework>netcoreapp3.0</TargetFramework>
-      <UseWindowsForms>true</UseWindowsForms>
+      <UseWPF>true</UseWPF>
       <OutputType>WinExe</OutputType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="OxyPlot.WindowsForms" Version="2.0.0" />
+    <PackageReference Include="OxyPlot.Wpf" Version="2.0.0" />
   </ItemGroup>
+  <Import Project="..\NormalDistributions.Shared\NormalDistributions.Shared.projitems" Label="Shared" />
 </Project>

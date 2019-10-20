@@ -1,83 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FE37EF85-360E-46BA-95D5-3A336F70297A}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExampleGenerator</RootNamespace>
-    <AssemblyName>ExampleGenerator</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
+      <TargetFramework>netcoreapp3.0</TargetFramework>
+      <UseWindowsForms>true</UseWindowsForms>
+      <OutputType>WinExe</OutputType>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OxyPlot, Version=1.0.0.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
-      <HintPath>..\packages\OxyPlot.Core.1.0.0-unstable2069\lib\net45\OxyPlot.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="OxyPlot.WindowsForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=245eacd6b5d2d338, processorArchitecture=MSIL">
-      <HintPath>..\packages\OxyPlot.WindowsForms.1.0.0-unstable2069\lib\net45\OxyPlot.WindowsForms.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Annotations\EllipseAnnotationExamples.cs" />
-    <Compile Include="Annotations\LineAnnotationExamples.cs" />
-    <Compile Include="Annotations\RectangleAnnotationExamples.cs" />
-    <Compile Include="Annotations\TextAnnotationExamples.cs" />
-    <Compile Include="Axes\AxisExamples.cs" />
-    <Compile Include="Axes\DateTimeAxisExamples.cs" />
-    <Compile Include="Axes\LinearAxisExamples.cs" />
-    <Compile Include="Axes\LogarithmicAxisExamples.cs" />
-    <Compile Include="Axes\PolarPlotExamples.cs" />
-    <Compile Include="Axes\TimeSpanAxisExamples.cs" />
-    <Compile Include="ExportAttribute.cs" />
-    <Compile Include="Misc\BindingExamples.cs" />
-    <Compile Include="Series\BarSeriesExamples.cs" />
-    <Compile Include="Series\ColumnSeriesExamples.cs" />
-    <Compile Include="Series\HeatMapSeriesExamples.cs" />
-    <Compile Include="Series\LineSeriesExamples.cs" />
-    <Compile Include="Series\ScatterSeriesExamples.cs" />
-    <Compile Include="Series\ContourSeriesExamples.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Misc\Showcases.cs" />
-    <Compile Include="Series\StairStepSeriesExamples.cs" />
-    <Compile Include="Series\TwoColorLineSeriesExamples.cs" />
-    <Compile Include="Series\FunctionSeriesExamples.cs" />
-    <Compile Include="Series\StemSeriesExamples.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
+    <PackageReference Include="OxyPlot.WindowsForms" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\TruePNG\TruePNG.exe">
@@ -85,12 +13,4 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

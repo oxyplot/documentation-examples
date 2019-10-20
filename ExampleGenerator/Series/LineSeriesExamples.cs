@@ -22,7 +22,7 @@
         public static PlotModel LineSeriesExample2()
         {
             var model = new PlotModel { Title = "LineSeries", Subtitle = "Smooth = true" };
-            var lineSeries = new LineSeries { Smooth = true };
+            var lineSeries = new LineSeries { InterpolationAlgorithm = new CanonicalSpline(10) };
             lineSeries.Points.Add(new DataPoint(0, 0));
             lineSeries.Points.Add(new DataPoint(10, 4));
             lineSeries.Points.Add(new DataPoint(30, 2));
