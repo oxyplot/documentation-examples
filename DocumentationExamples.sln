@@ -31,6 +31,8 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "ConsoleApp2", "HelloWorld\C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "HelloWorld\ConsoleApp1\ConsoleApp1.csproj", "{0DE23435-C781-45E4-A28B-E13B267E19D6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example generation", "Example generation", "{07573620-9B33-4961-9815-9C3B7231F843}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		NormalDistributions\NormalDistributions.Shared\NormalDistributions.Shared.projitems*{70ff713a-e9d7-4cfe-a856-96a4faf05373}*SharedItemsImports = 13
@@ -439,6 +441,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{FE37EF85-360E-46BA-95D5-3A336F70297A} = {07573620-9B33-4961-9815-9C3B7231F843}
 		{5762A261-6D9D-4A74-9D1E-37B47759D5CA} = {859100AC-77DD-46D5-BE5B-60ADE931376E}
 		{EAEEBD59-2C11-4398-97BA-94C7D38E09D4} = {5762A261-6D9D-4A74-9D1E-37B47759D5CA}
 		{5DF93C64-0A6E-47F5-BDC6-97C81E882F35} = {859100AC-77DD-46D5-BE5B-60ADE931376E}
